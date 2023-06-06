@@ -1,6 +1,6 @@
-import { PhoneState, phoneReducer } from "../reducers/reducer";
+import { PhoneState, phoneReducer } from "../features/redux/reducer";
 import { useReducer } from "react";
-import * as action from "../reducers/actions.creator";
+import * as action from "../features/redux/actions.creator";
 
 export function usePhone() {
   const initialState: PhoneState = {
