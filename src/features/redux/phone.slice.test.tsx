@@ -1,49 +1,49 @@
 import { add, erase, hang, call, PhoneState } from "./phone.slice";
-import yourReducer from "./phone.slice";
+import slicePhone from "./phone.slice";
 
-describe("phone slice", () => {
+describe("Given a phone slice", () => {
   let initialState: PhoneState;
-  describe("When...", () => {
+  describe("When it is instantiate", () => {
     beforeEach(() => {
       initialState = {
         phoneNumber: "",
-        isCalling: false,
+        isCall: false,
       };
     });
-    test("should handle the add action", () => {
+    test("Then it should execute the add action", () => {
       const payload = "123";
       const expectedState = {
         phoneNumber: initialState.phoneNumber + payload,
-        iscalling: false,
+        isCall: false,
       };
-      expect(yourReducer(initialState, add(payload))).toEqual(expectedState);
+      expect(slicePhone(initialState, add(payload))).toEqual(expectedState);
     });
   });
 
-  test("should handle the erase action", () => {
+  test("Then it should execute the erase action", () => {
     const expectedState = {
       phoneNumber: initialState.phoneNumber.substring(
         0,
         initialState.phoneNumber.length - 1
       ),
-      iscalling: false,
+      isCall: false,
     };
-    expect(yourReducer(initialState, erase())).toEqual(expectedState);
+    expect(slicePhone(initialState, erase())).toEqual(expectedState);
   });
 
-  test("should handle the hang action", () => {
+  test("Then it should execute the hang action", () => {
     const expectedState = {
       phoneNumber: "",
-      iscalling: !initialState.isCalling,
+      isCall: !initialState.isCall,
     };
-    expect(yourReducer(initialState, hang())).toEqual(expectedState);
+    expect(slicePhone(initialState, hang())).toEqual(expectedState);
   });
 
   test("should handle the call action", () => {
     const expectedState = {
       phoneNumber: "",
-      iscalling: !initialState.isCalling,
+      isCall: !initialState.isCall,
     };
-    expect(yourReducer(initialState, call())).toEqual(expectedState);
+    expect(slicePhone(initialState, call())).toEqual(expectedState);
   });
 });
