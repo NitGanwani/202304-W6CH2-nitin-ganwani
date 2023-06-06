@@ -22,8 +22,16 @@ const slicePhone = createSlice({
       ...state,
       phoneNumber: state.phoneNumber.substring(0, state.phoneNumber.length - 1),
     }),
+    hang: (state) => ({
+      ...state,
+      iscalling: !state.iscalling,
+    }),
+    call: (state) => ({
+      ...state,
+      iscalling: !state.iscalling,
+    }),
   },
 });
 
-export const { add, erase } = slicePhone.actions;
+export const { add, erase, hang, call } = slicePhone.actions;
 export default slicePhone.reducer;
