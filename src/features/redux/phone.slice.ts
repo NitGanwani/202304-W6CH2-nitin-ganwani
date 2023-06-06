@@ -1,21 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Phone } from "../models/phone";
 
 export type PhoneState = {
-  phone: Phone[];
+  phoneNumber: string;
+  iscalling: boolean;
 };
 
 const initialState: PhoneState = {
-  phone: [],
+  phoneNumber: "",
+  iscalling: false,
 };
 
 const slicePhone = createSlice({
-  name: "add",
+  name: "phone",
   initialState,
   reducers: {
     add: (state, { payload }) => ({
       ...state,
-      phone: payload,
+      phoneNumber: state.phoneNumber + payload,
     }),
     // delete: (state, { payload }) => ({
     //   ...state,
@@ -34,5 +35,5 @@ const slicePhone = createSlice({
   },
 });
 
-export const ac = slicePhone.actions;
+export const { add } = slicePhone.actions;
 export default slicePhone.reducer;

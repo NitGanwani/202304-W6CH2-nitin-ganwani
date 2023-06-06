@@ -1,21 +1,18 @@
-import { PhoneContext } from "../../context/phone.context";
-import { useContext } from "react";
+import { usePhone } from "../../../hooks/use.phone";
 
 export function Action() {
-  const {
-    phoneContext: { screen, isCalling },
-  } = useContext(PhoneContext);
+  const { iscalling, screen } = usePhone();
   return (
     <>
       <a
         href="#"
         className={`call ${
-          isCalling ? "" : screen.length === 9 ? "active" : ""
+          iscalling ? "" : screen.length === 9 ? "active" : ""
         }`}
       >
         Call
       </a>
-      <a href="#" className={`hang ${isCalling ? "active" : ""}`}>
+      <a href="#" className={`hang ${iscalling ? "active" : ""}`}>
         Hang Up
       </a>
     </>

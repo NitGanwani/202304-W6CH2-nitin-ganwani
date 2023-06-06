@@ -1,9 +1,6 @@
-import { PhoneContext } from "../../context/phone.context";
-import { useContext } from "react";
+import { usePhone } from "../../../hooks/use.phone";
 
 export function Info() {
-  const {
-    phoneContext: { isCalling },
-  } = useContext(PhoneContext);
-  return <span className="message">{isCalling ? "Calling" : ""}</span>;
+  const { iscalling } = usePhone();
+  return <span className="message">{iscalling ? "Calling" : ""}</span>;
 }

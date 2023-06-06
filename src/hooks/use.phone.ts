@@ -1,15 +1,13 @@
-import { PhoneState, phoneReducer } from "../features/redux/reducer";
-import { useReducer } from "react";
-import * as action from "../features/redux/actions.creator";
+import { useSelector, useDispatch } from "react-redux";
+import * as action from "../features/redux/phone.slice";
+import { AppDispatch, RootState } from "../core/components/store/store";
 
 export function usePhone() {
-  const initialState: PhoneState = {
-    phoneNumber: "",
-    isCalling: false,
-  };
-
-  const [phoneState, dispatch] = useReducer(phoneReducer, initialState);
-
+  // const [phoneState, dispatch] = useReducer(phoneReducer, initialState);
+  const { phoneNumber, iscalling } = useSelector(
+    (state: RootState) => state.phone
+  );
+  const dispatch: AppDispatch = useDispatch();
   const phoneNumbers = [
     "1",
     "2",
@@ -25,20 +23,19 @@ export function usePhone() {
   ];
 
   function handleAddNumber(value: string) {
-    if (phoneState.phoneNumber.length < 9) {
-      dispatch(action.addNumberAction(value));
+    if (phoneNumber.length < 9) {
+      dispatch(action.add(value));
     }
   }
 
-  function handleDelete() {
-    dispatch(action.deleteNumberAction());
-  }
+  // function handleDelete() {
+  //   dispatch(action.deleteNumberAction());
+  // }
 
   return {
-    screen: phoneState.phoneNumber,
-    isCalling: phoneState.isCalling,
+    screen: phoneNumber,
+    iscalling: iscalling,
     handleAddNumber,
-    handleDelete,
     phoneNumbers,
   };
 }
