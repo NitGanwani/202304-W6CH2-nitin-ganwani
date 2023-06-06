@@ -1,18 +1,18 @@
-import { usePhone } from "../../../hooks/use.phone";
+import { usePhone } from "../../../features/hooks/use.phone";
 
 type PropsType = {
   item: string;
 };
 
 export function Key({ item }: PropsType) {
-  const { iscalling, handleAddNumber, handleDelete } = usePhone();
+  const { isCalling, handleAddNumber, handleDelete } = usePhone();
 
   function handleClick() {
-    if (!iscalling) handleAddNumber(item);
+    if (!isCalling) handleAddNumber(item);
   }
 
   function handleDeleteClick() {
-    if (!iscalling) handleDelete();
+    if (!isCalling) handleDelete();
   }
 
   return (

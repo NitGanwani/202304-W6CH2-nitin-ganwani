@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
-import * as action from "../features/redux/phone.slice";
-import { AppDispatch, RootState } from "../core/components/store/store";
+import * as action from "../redux/phone.slice";
+import { AppDispatch, RootState } from "../../core/components/store/store";
 
 export function usePhone() {
-  const { phoneNumber, iscalling } = useSelector(
+  const { phoneNumber, isCalling } = useSelector(
     (state: RootState) => state.phone
   );
   const dispatch: AppDispatch = useDispatch();
@@ -33,17 +33,15 @@ export function usePhone() {
 
   function handleHang() {
     dispatch(action.hang());
-    console.log("sexos");
   }
 
   function handleCall() {
     dispatch(action.call());
-    console.log("bombas");
   }
 
   return {
     screen: phoneNumber,
-    iscalling: iscalling,
+    isCalling: isCalling,
     handleAddNumber,
     handleDelete,
     handleHang,

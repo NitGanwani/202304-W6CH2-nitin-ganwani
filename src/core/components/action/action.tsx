@@ -1,7 +1,7 @@
-import { usePhone } from "../../../hooks/use.phone";
+import { usePhone } from "../../../features/hooks/use.phone";
 
 export function Action() {
-  const { iscalling, screen, handleHang, handleCall } = usePhone();
+  const { isCalling, screen, handleHang, handleCall } = usePhone();
 
   function handleHangClick() {
     handleHang();
@@ -16,7 +16,7 @@ export function Action() {
       <a
         href="#"
         className={`call ${
-          iscalling ? "" : screen.length === 9 ? "active" : ""
+          isCalling ? "" : screen.length === 9 ? "active" : ""
         }`}
         onClick={handleCallClick}
       >
@@ -24,7 +24,7 @@ export function Action() {
       </a>
       <a
         href="#"
-        className={`hang ${iscalling ? "active" : ""}`}
+        className={`hang ${isCalling ? "active" : ""}`}
         onClick={handleHangClick}
       >
         Hang Up
