@@ -60,7 +60,7 @@ li {
   cursor: default;
   opacity: 0;
 }
-.key:not(disabled):hover {
+.key:not:hover {
   background-color: #454545;
 }
 .message {
