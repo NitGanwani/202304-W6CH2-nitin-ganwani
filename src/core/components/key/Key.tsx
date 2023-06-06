@@ -1,4 +1,3 @@
-import { add } from "../../../features/redux/phone.slice";
 import { usePhone } from "../../../hooks/use.phone";
 
 type PropsType = {
@@ -6,15 +5,15 @@ type PropsType = {
 };
 
 export function Key({ item }: PropsType) {
-  const { iscalling } = usePhone();
+  const { iscalling, handleAddNumber, handleDelete } = usePhone();
 
   function handleClick() {
-    if (!iscalling) add(item);
+    if (!iscalling) handleAddNumber(item);
   }
 
-  // function handleDeleteClick() {
-  //   if (!iscalling) handleDelete;
-  // }
+  function handleDeleteClick() {
+    if (!iscalling) handleDelete();
+  }
 
   return (
     <>
@@ -24,7 +23,9 @@ export function Key({ item }: PropsType) {
             {item}
           </button>
         ) : (
-          <button className="key big">{item}</button>
+          <button className="key big" onClick={handleDeleteClick}>
+            {item}
+          </button>
         )}
       </li>
     </>

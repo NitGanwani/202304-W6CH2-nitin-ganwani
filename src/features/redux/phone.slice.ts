@@ -18,22 +18,12 @@ const slicePhone = createSlice({
       ...state,
       phoneNumber: state.phoneNumber + payload,
     }),
-    // delete: (state, { payload }) => ({
-    //   ...state,
-    //   tasks: state.tasks.filter((item) => item.id !== payload),
-    // }),
-    // create: (state, { payload }) => ({
-    //   ...state,
-    //   tasks: [...state.tasks, payload],
-    // }),
-    // update: (state, { payload }) => ({
-    //   ...state,
-    //   tasks: state.tasks.map((item) =>
-    //     item.id === (payload as Task).id ? (payload as Task) : item
-    //   ),
-    // }),
+    erase: (state) => ({
+      ...state,
+      phoneNumber: state.phoneNumber.substring(0, state.phoneNumber.length - 1),
+    }),
   },
 });
 
-export const { add } = slicePhone.actions;
+export const { add, erase } = slicePhone.actions;
 export default slicePhone.reducer;
