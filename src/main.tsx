@@ -1,15 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { App } from "./components/App";
 import { BrowserRouter as Router } from "react-router-dom";
-import { PhoneContextProvider } from "./context/phone.context.provider";
+import { Provider } from "react-redux";
+import { App } from "./core/components/App";
+import { store } from "./core/components/store/store";
 
 ReactDOM.createRoot(document.querySelector(".container") as HTMLElement).render(
   <React.StrictMode>
     <Router>
-      <PhoneContextProvider>
+      <Provider store={store}>
         <App />
-      </PhoneContextProvider>
+      </Provider>
     </Router>
   </React.StrictMode>
 );
