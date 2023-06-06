@@ -1,22 +1,20 @@
-import { PhoneContext } from "../../context/phone.context";
-import { useContext } from "react";
+import { add } from "../../../features/redux/phone.slice";
+import { usePhone } from "../../../hooks/use.phone";
 
 type PropsType = {
   item: string;
 };
 
 export function Key({ item }: PropsType) {
-  const {
-    phoneContext: { handleAddNumber, isCalling, handleDelete },
-  } = useContext(PhoneContext);
+  const { iscalling } = usePhone();
 
   function handleClick() {
-    if (!isCalling) handleAddNumber(item);
+    if (!iscalling) add(item);
   }
 
-  function handleDeleteClick() {
-    if (!isCalling) handleDelete;
-  }
+  // function handleDeleteClick() {
+  //   if (!iscalling) handleDelete;
+  // }
 
   return (
     <>
@@ -26,9 +24,7 @@ export function Key({ item }: PropsType) {
             {item}
           </button>
         ) : (
-          <button className="key big" onClick={handleDeleteClick}>
-            {item}
-          </button>
+          <button className="key big">{item}</button>
         )}
       </li>
     </>

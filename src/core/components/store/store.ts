@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { phoneReducer } from "../../../features/redux/reducer";
+import phoneReducer from "../../../features/redux/phone.slice";
 
 export const store = configureStore({
   reducer: {

@@ -7,6 +7,6 @@ export type PhoneAction = {
   payload?: string | boolean;
 };
 
-export const addNumberAction = createAction<Phone[]>(actionTypes.add);
+export const addNumberAction = createAction<Phone>(actionTypes.add);
 
 export const deleteNumberAction = createAction<number>(actionTypes.delete);

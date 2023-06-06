@@ -1,11 +1,8 @@
-import { useContext } from "react";
-import { PhoneContext } from "../../context/phone.context";
 import { Key } from "../key/Key";
+import { usePhone } from "../../../hooks/use.phone";
 
 export function Keyboard() {
-  const {
-    phoneContext: { phoneNumbers },
-  } = useContext(PhoneContext);
+  const { phoneNumbers } = usePhone();
   return (
     <div className="keyboard-container">
       <ol className="keyboard">
