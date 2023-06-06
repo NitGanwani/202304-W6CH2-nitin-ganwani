@@ -3,7 +3,7 @@ import * as action from "../redux/phone.slice";
 import { AppDispatch, RootState } from "../../core/components/store/store";
 
 export function usePhone() {
-  const { phoneNumber, isCalling } = useSelector(
+  const { phoneNumber, isCall } = useSelector(
     (state: RootState) => state.phone
   );
   const dispatch: AppDispatch = useDispatch();
@@ -41,7 +41,7 @@ export function usePhone() {
 
   return {
     screen: phoneNumber,
-    isCalling: isCalling,
+    isCall,
     handleAddNumber,
     handleDelete,
     handleHang,

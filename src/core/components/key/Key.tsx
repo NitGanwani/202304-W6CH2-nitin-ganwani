@@ -5,14 +5,14 @@ type PropsType = {
 };
 
 export function Key({ item }: PropsType) {
-  const { isCalling, handleAddNumber, handleDelete } = usePhone();
+  const { isCall, handleAddNumber, handleDelete } = usePhone();
 
   function handleClick() {
-    if (!isCalling) handleAddNumber(item);
+    if (!isCall) handleAddNumber(item);
   }
 
   function handleDeleteClick() {
-    if (!isCalling) handleDelete();
+    if (!isCall) handleDelete();
   }
 
   return (
