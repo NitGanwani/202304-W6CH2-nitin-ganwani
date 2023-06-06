@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export type PhoneState = {
   phoneNumber: string;
-  iscalling: boolean;
+  isCalling: boolean;
 };
 
 const initialState: PhoneState = {
   phoneNumber: "",
-  iscalling: false,
+  isCalling: false,
 };
 
 const slicePhone = createSlice({
@@ -24,11 +24,11 @@ const slicePhone = createSlice({
     }),
     hang: (state) => ({
       ...state,
-      iscalling: !state.iscalling,
+      iscalling: !state.isCalling,
     }),
     call: (state) => ({
       ...state,
-      iscalling: !state.iscalling,
+      iscalling: !state.isCalling,
     }),
   },
 });

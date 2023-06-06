@@ -1,4 +1,4 @@
-import { usePhone } from "../../../hooks/use.phone";
+import { usePhone } from "../../../features/hooks/use.phone";
 
 export function Info() {
   const { iscalling } = usePhone();

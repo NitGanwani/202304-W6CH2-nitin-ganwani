@@ -1,5 +1,5 @@
 import { Key } from "../key/Key";
-import { usePhone } from "../../../hooks/use.phone";
+import { usePhone } from "../../../features/hooks/use.phone";
 
 export function Keyboard() {
   const { phoneNumbers } = usePhone();
