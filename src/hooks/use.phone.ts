@@ -28,14 +28,15 @@ export function usePhone() {
     }
   }
 
-  // function handleDelete() {
-  //   dispatch(action.deleteNumberAction());
-  // }
+  function handleDelete() {
+    dispatch(action.erase());
+  }
 
   return {
     screen: phoneNumber,
     iscalling: iscalling,
     handleAddNumber,
+    handleDelete,
     phoneNumbers,
   };
 }
